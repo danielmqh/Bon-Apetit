@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePedidosTable extends Migration
+class CreateHorarioReservasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,20 +13,20 @@ class CreatePedidosTable extends Migration
      */
     public function up()
     {
-        Schema::create('pedidos', function (Blueprint $table) {
+        Schema::create('horario_reservas', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('cantida_pedido');
-            $table->dateTime('fecha_pedido');
-            
+            $table->integer('mañana');
+            $table->integer('tarde');
+            $table->integer('noche');
+            $table->integer('horario_disponible');
+
+            $table->integer('reserva_id')->unsigned();
             $table->integer('mesa_id')->unsigned();
-            $table->integer('cliente_id')->unsigned();
-            $table->integer('menu_id')->unsigned();
 
             $table->timestamps();
 
+            $table->foreign('reserva_id')->references('id')->on('reservas');
             $table->foreign('mesa_id')->references('id')->on('mesas');
-            $table->foreign('cliente_id')->references('id')->on('clientes');
-            $table->foreign('menu_id')->references('id')->on('menus');
         });
     }
 
@@ -37,6 +37,6 @@ class CreatePedidosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pedido');
+        Schema::dropIfExists('horario_reservas');
     }
 }

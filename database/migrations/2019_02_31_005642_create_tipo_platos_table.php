@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateMesasTable extends Migration
+class CreateTipoPlatosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,9 @@ class CreateMesasTable extends Migration
      */
     public function up()
     {
-        Schema::create('mesas', function (Blueprint $table) {
+        Schema::create('tipo_platos', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('numero_mesa');
-            $table->string('descripcion_mesa');
+            $table->string('nombre_tipo_plato');
             $table->timestamps();
         });
     }
@@ -28,6 +27,6 @@ class CreateMesasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('mesa');
+        Schema::dropIfExists('tipo_platos');
     }
 }

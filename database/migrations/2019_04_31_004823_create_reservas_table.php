@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateRecibosTable extends Migration
+class CreateReservasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,17 @@ class CreateRecibosTable extends Migration
      */
     public function up()
     {
-        Schema::create('recibos', function (Blueprint $table) {
+        Schema::create('reservas', function (Blueprint $table) {
             $table->increments('id');
-            $table->date('fecha_reci');
-            $table->string('descripcion');
+            $table->date('fecha_reserva');
+            $table->time('hora_reserva');
+            $table->time('hora_fin_reserva');
 
-            $table->integer('pedido_id')->unsigned();
+            $table->integer('cliente_id')->unsigned();
 
             $table->timestamps();
 
-            $table->foreign('pedido_id')->references('id')->on('pedidos');
+            $table->foreign('cliente_id')->references('id')->on('reservas');
         });
     }
 
@@ -33,6 +34,6 @@ class CreateRecibosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('recibo');
+        Schema::dropIfExists('reservas');
     }
 }
