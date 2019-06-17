@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Mesa;
-// use App\http\Requests\
+use App\Turno;
+use Carbon\Carbon;
 
-class MesasController extends Controller
+class TurnosController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,8 @@ class MesasController extends Controller
      */
     public function index()
     {
-        $mesas = Mesa::orderBy('id','DESC')->paginate();
-        return view('mesas.listar', compact('mesas'));
+        $turnos = Turno::orderBy('id','DESC')->paginate();
+        return view('turnos.listar', compact('turnos'));
     }
 
     /**
@@ -26,7 +26,7 @@ class MesasController extends Controller
      */
     public function create()
     {
-        return view('mesas.crear');
+        return view('turnos.crear');
     }
 
     /**
@@ -37,13 +37,14 @@ class MesasController extends Controller
      */
     public function store(Request $request)
     {
-        $mesas = new Mesa;
-        $mesas->num_mesa = $request->get('num_mesa');
-        $mesas->cantidad_silla_mesa = $request->get('cantidad_silla_mesa');
-        $mesas->descripcion = $request->get('descripcion');
-        $mesas->save();
-
-        return redirect()->to('mesas');
+        // return $request;
+        $turnos = new Turno;
+        $turnos->descripcion = $request->get('descripcion');
+        $turnos->hora_inicio = $request->get('hora_inicio');
+        $turnos->hora_salida = $request->get('hora_salida');
+        $turnos->save();
+        // return 'hola';
+        return redirect()->to('turnos'); 
     }
 
     /**
@@ -65,8 +66,8 @@ class MesasController extends Controller
      */
     public function edit($id)
     {
-        $mesas = Mesa::find($id);
-        return view('mesas.editar', compact('mesas'));
+        $turnos = Turno::find($id);
+        return view('turnos.editar', compact('turnos'));
     }
 
     /**
@@ -78,14 +79,12 @@ class MesasController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $mesas = Mesa::find($id);
-        $mesas->num_mesa = $request->num_mesa;
-        $mesas->cantidad_silla_mesa = $request->cantidad_silla_mesa;
-        $mesas->descripcion = $request->descripcion;
-        $mesas->save();
-        // return 'hola';
-
-        return redirect()->to('mesas');
+        $turnos = Turno::find($id);
+        $turnos->descripcion = $request->descripcion;
+        $turnos->hora_inicio = $request->hora_inicio;
+        $turnos->hora_salida = $request->hora_salida;
+        $turnos->save();
+        return redirect()->to('turnos');
     }
 
     /**
@@ -96,9 +95,9 @@ class MesasController extends Controller
      */
     public function destroy($id)
     {
-        $mesas = Mesa::find($id);
-        $mesas->delete();
+        $turnos = Turno::find($id);
+        $turnos->delete();
 
-        return back()->with('info', 'La Mesa fue eliminada');
+        return back()->with('info', 'El`proveedor fue eliminado');
     }
 }

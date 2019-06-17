@@ -3,10 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Mesa;
-// use App\http\Requests\
+use App\Cargo;
 
-class MesasController extends Controller
+class CargosController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +14,8 @@ class MesasController extends Controller
      */
     public function index()
     {
-        $mesas = Mesa::orderBy('id','DESC')->paginate();
-        return view('mesas.listar', compact('mesas'));
+        $cargos = Cargo::orderBy('id', 'DESC')->paginate();
+        return view('cargos.listar', compact('cargos'));
     }
 
     /**
@@ -26,7 +25,7 @@ class MesasController extends Controller
      */
     public function create()
     {
-        return view('mesas.crear');
+        return view('cargos.crear');
     }
 
     /**
@@ -37,13 +36,12 @@ class MesasController extends Controller
      */
     public function store(Request $request)
     {
-        $mesas = new Mesa;
-        $mesas->num_mesa = $request->get('num_mesa');
-        $mesas->cantidad_silla_mesa = $request->get('cantidad_silla_mesa');
-        $mesas->descripcion = $request->get('descripcion');
-        $mesas->save();
+        $cargos = new Cargo;
+        $cargos->nombre_cargo = $request->get('nombre_cargo');
+        $cargos->sueldo = $request->get('sueldo');
+        $cargos->save();
 
-        return redirect()->to('mesas');
+        return redirect()->to('cargos');
     }
 
     /**
@@ -65,8 +63,8 @@ class MesasController extends Controller
      */
     public function edit($id)
     {
-        $mesas = Mesa::find($id);
-        return view('mesas.editar', compact('mesas'));
+        $cargos = Cargo::find($id);
+        return view('cargos.editar', compact('cargos'));
     }
 
     /**
@@ -78,14 +76,12 @@ class MesasController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $mesas = Mesa::find($id);
-        $mesas->num_mesa = $request->num_mesa;
-        $mesas->cantidad_silla_mesa = $request->cantidad_silla_mesa;
-        $mesas->descripcion = $request->descripcion;
-        $mesas->save();
-        // return 'hola';
+        $cargos = Cargo::find($id);
+        $cargos->nombre_cargo = $request->nombre_cargo;
+        $cargos->sueldo = $request->sueldo;
+        $cargos->save();
 
-        return redirect()->to('mesas');
+        return redirect()->to('cargos');
     }
 
     /**
@@ -96,9 +92,9 @@ class MesasController extends Controller
      */
     public function destroy($id)
     {
-        $mesas = Mesa::find($id);
-        $mesas->delete();
+        $cargos = Cargo::find($id);
+        $cargos->delete();
 
-        return back()->with('info', 'La Mesa fue eliminada');
+        return back()->with('info', 'El Cargo fue eliminado');
     }
 }

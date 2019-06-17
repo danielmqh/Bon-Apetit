@@ -14,3 +14,13 @@
 Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
+
+Route::resource('proveedores', 'ProveedoresController');
+
+Route::resource('mesas', 'MesasController');
+
+Route::resource('turnos', 'TurnosController');
+
+Route::resource('cargos', 'CargosController');
+
+Route::resource('trabajadores', 'trabajadoresController');
