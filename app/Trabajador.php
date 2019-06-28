@@ -32,6 +32,6 @@ class Trabajador extends Model
 
  	public function bartender_bebida()
  	{
- 		return $this->hasMany('App\Bartender_bebida', 'id_bartebebi');
+ 		return $this->hasMany('App\Bartender_bebida', 'id_traba');
  	}
 }

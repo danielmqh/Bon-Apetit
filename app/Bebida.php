@@ -27,6 +27,6 @@ class Bebida extends Model
 
     public function insumo_bebida()
     {
-    	return $this->hasMany('App\Insumo_bebida', 'id_insubebi');
+    	return $this->hasMany('App\Insumo_bebida', 'id_bebi');
     }
 }

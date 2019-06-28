@@ -125,6 +125,46 @@
           <i class="fas fa-fw fa-cog"></i>
           <span>proyecto</span>
         </a>
+        {{-- boton de plato --}}
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Custom Components:</h6>
+            <a class="collapse-item" href="{!! asset('platos') !!}">Platos</a>
+            <a class="collapse-item" href="cards.html">Cards</a>
+          </div>
+        </div>
+        {{-- boton de batender --}}
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Custom Components:</h6>
+            <a class="collapse-item" href="{!! asset('batender') !!}">batender</a>
+            <a class="collapse-item" href="cards.html">Cards</a>
+          </div>
+        </div>
+        {{-- boton de bebida --}}
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Custom Components:</h6>
+            <a class="collapse-item" href="{!! asset('bebidas') !!}">Bebidas</a>
+            <a class="collapse-item" href="cards.html">Cards</a>
+          </div>
+        </div>
+        {{-- boton de tipo plato --}}
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Custom Components:</h6>
+            <a class="collapse-item" href="{!! asset('tipo_platos') !!}">Tipo plato</a>
+            <a class="collapse-item" href="cards.html">Cards</a>
+          </div>
+        </div>
+        {{-- boton de tipo bebida --}}
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Custom Components:</h6>
+            <a class="collapse-item" href="{!! asset('tipo_bebidas') !!}">Tipo bebida</a>
+            <a class="collapse-item" href="cards.html">Cards</a>
+          </div>
+        </div>
         {{-- boton de lista de proveedores --}}
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">

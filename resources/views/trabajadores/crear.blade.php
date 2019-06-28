@@ -28,7 +28,7 @@
                       </div>
                       <div class="form-group">
                         <label>Genero</label>
-                        <select id="id_role" name="id_role" class="form-control">
+                        <select name="genero" class="form-control">
                           <option>------seleccionar--------</option>
                           <option value="1">Masculino</option>
                           <option value="2">Femenido</option>

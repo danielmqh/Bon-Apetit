@@ -31,8 +31,8 @@ class TrabajadoresController extends Controller
         $turno = Turno::all();
         // return $cargo;
         return view('trabajadores.crear',[
-            'cargo' => $cargo,
-            'turno' => $turno
+            'cargos' => $cargo,
+            'turnos' => $turno
         ]);
     }
 
@@ -83,10 +83,9 @@ class TrabajadoresController extends Controller
         $trabajadores = Trabajador::find($id);
         $cargo = Cargo::all();
         $turno = Turno::all();
-        return view('trabajadores.crear',[
-            // 'trabajador' =>$trabajador,
-            'cargo' => $cargo,
-            'turno' => $turno
+        return view('trabajadores.editar', compact('trabajadores'),[
+            'cargos' => $cargo,
+            'turnos' => $turno
         ]);
     }
 
@@ -100,10 +99,6 @@ class TrabajadoresController extends Controller
     public function update(Request $request, $id)
     {
         $trabajadores = Trabajador::find($id);
-
-        $trabajadores->cargo_id = $request->id_carg;
-        $trabajadores->turno_id = $request->id_tur;
-
         $trabajadores->nombre = $request->nombre;
         $trabajadores->ap_paterno = $request->ap_paterno;
         $trabajadores->ap_materno = $request->ap_materno;
@@ -111,6 +106,10 @@ class TrabajadoresController extends Controller
         $trabajadores->genero = $request->genero;
         $trabajadores->correo = $request->correo;
         $trabajadores->telefono = $request->telefono;
+
+        $trabajadores->cargo_id = $request->id_carg;
+        $trabajadores->turno_id = $request->id_tur;
+        
         $trabajadores->save();
         return redirect()->to('trabajadores');
     }

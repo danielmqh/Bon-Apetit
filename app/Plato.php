@@ -12,12 +12,7 @@ class Plato extends Model
 
     public function tipo_plato()
     {
-    	return $this->hasMany('App\Tpo_plato', 'id_tiplato');
-    }
-
-    public function tipo_plato()
-    {
-    	return $this->belongsTo('App\Recerva', 'tipo_plato_id');
+        return $this->belongsTo('App\Tipo_plato', 'tipo_plato_id');
     }
 
     public function insumo_plato()

@@ -12,6 +12,6 @@ class Tipo_plato extends Model
 
     public function plato()
     {
-    	return $this->belongsTo('App\Plato', 'plato_id');
+    	return $this->hasMany('App\Plato', 'id_plato');
     }
 }
